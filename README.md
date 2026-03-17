@@ -13,7 +13,6 @@ Training and evaluation data must be converted to `.npy` and optionally cropped/
 | **png2npy.py** | Convert PNGs in a directory to NumPy arrays and save as `.npy` | Process `Train/GT/`, `Train/IN_CR_COM/`, `Train/IN_SH_COM/`, etc., so downstream scripts read `.npy` |
 | **crop_npy.py** | Crop large `.npy` images to a fixed size (full coverage, minimal overlap) | By default processes `train/GT` and `train/IN_CR_COM` → `train/GT_crop`, `train/IN_CR_COM_crop` (default crop 1024×768); use `--only_dir` to process a single directory |
 | **combine_npy.py** | Merge 6×6=36 crops into 2×2=4 by combining 3×3 blocks with stride, then resize to 1024×768 | Input: `train/GT_crop`, `train/IN_CR_COM_crop` → output: `train/GT_crop_resize`, `train/IN_CR_COM_crop_resize` (default training data) |
-| **split_dataset.py** | Split train/val file lists by id and write to `Train/metadata/` | Generates train/val file lists for the training script to index validation set |
 
 Optional scripts:
 
