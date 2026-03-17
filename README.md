@@ -1,4 +1,4 @@
-# NTIRE 2026 Ambient Lighting Normalization (Color Lighting)
+# For NTIRE 2026 Ambient Lighting Normalization (Color Lighting)
 
 Staged-CNN workflow: **Data preparation → Training (Stage 1–4) → Test & submission**.
 
@@ -97,3 +97,10 @@ python submission_patch.py --input_dir /path/to/test_step1 --cnn_checkpoint chec
 
 Results are written to `--tmp_out_dir`; the generated readme includes runtime, CPU/GPU, and Other description (e.g. repo link). With `--output_zip` you get a zip ready for submission.
 
+### Staged-CNN's Final Result in NTIRE 2026
+test->test_step1
+python .\submission_patch.py --cnn_checkpoint checkpoints/step1/best_loss_epoch_32.pth --sliding_window --path_remap f f --patch_size 256 --stride 224 --resize_input 474,400 --high_ratio 0.33
+test_step1->test_step2
+python .\submission_patch.py --cnn_checkpoint checkpoints/step2/best_PSNR_epoch_9.pth --sliding_window --path_remap F: I: --img_size 544,416 --patch_size 544,416 --stride 512,384 --padding 32
+test_step2->submission
+python .\submission_patch.py --cnn_checkpoint checkpoints/step3/best_PSNR_epoch_20.pth --sliding_window --path_remap F: I: --img_size 544,416 --patch_size 544,416 --stride 512,384 --padding 32 --lock_l
