@@ -99,6 +99,10 @@ Results are written to `--tmp_out_dir`; the generated readme includes runtime, C
 
 ### 3. Check (Staged-CNN's Final Result in NTIRE 2026)
 ```bash
+# download checkpoints:
+https://pan.baidu.com/s/1GLw6kSm6K7DvrNO5fKQZ2A?pwd=SCNN
+```
+```bash
 # test->test_step1
 python .\submission_patch.py --cnn_checkpoint checkpoints/step1/best_loss_epoch_32.pth --sliding_window --patch_size 256 --stride 224 --resize_input 474,400 --high_ratio 0.33
 
@@ -106,5 +110,5 @@ python .\submission_patch.py --cnn_checkpoint checkpoints/step1/best_loss_epoch_
 python .\submission_patch.py --cnn_checkpoint checkpoints/step2/best_PSNR_epoch_9.pth --sliding_window --img_size 544,416 --patch_size 544,416 --stride 512,384 --padding 32
 
 # test_step2->submission
-python .\submission_patch.py --cnn_checkpoint checkpoints/step3/best_PSNR_epoch_20.pth --sliding_window --img_size 544,416 --patch_size 544,416 --stride 512,384 --padding 32 --lock_l
+python .\submission_patch.py --cnn_checkpoint checkpoints/step3/best_PSNR_epoch_3.pth --sliding_window --img_size 544,416 --patch_size 544,416 --stride 512,384 --padding 32 --lock_l
 ```
